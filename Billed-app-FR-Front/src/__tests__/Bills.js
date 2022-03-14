@@ -47,4 +47,19 @@ describe("Given I am connected as an employee", () => {
       expect(dates).toEqual(datesSorted);
     });
   });
+
+  /* Etant donné que je suis connecté comme un employé :
+  Quand je clique sur le bouton new bills
+  Il doit afficher la page de new bills */
+
+  describe("when I click on the new bill button", () => {
+    test("it should display the new bill page", () => {});
+  });
+
+  /* Quand je clique sur le bouton voir
+  Il doit afficher la modale du justifcatif */
+
+  describe("when I click on the eye button", () => {
+    test("it should display the justificate modal", () => {});
+  });
 });
