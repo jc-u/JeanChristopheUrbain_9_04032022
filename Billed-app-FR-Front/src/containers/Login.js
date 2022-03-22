@@ -57,7 +57,6 @@ export default class Login {
       ).value,
       status: "connected",
     };
-    debugger;
 
     this.localStorage.setItem("user", JSON.stringify(user));
     this.login(user)
