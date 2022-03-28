@@ -17,17 +17,25 @@ export default class NewBill {
     this.billId = null;
     new Logout({ document, localStorage, onNavigate });
   }
+
   handleChangeFile = (e) => {
     e.preventDefault();
     const file = this.document.querySelector(`input[data-testid="file"]`)
       .files[0];
+    console.log(file);
     const filePath = e.target.value.split(/\\/g);
     const fileName = filePath[filePath.length - 1];
+
+    const fileAcceptedRegex = new RegExp("^.*.(png|jpe?g|pdf)$", "i");
+    if (!fileAcceptedRegex.test(file.name)) return false;
+
     const formData = new FormData();
     const email = JSON.parse(localStorage.getItem("user")).email;
     formData.append("file", file);
     formData.append("email", email);
 
+    // not need to cover this function by tests
+    /* istanbul ignore next */
     this.store
       .bills()
       .create({
@@ -74,6 +82,7 @@ export default class NewBill {
   };
 
   // not need to cover this function by tests
+  /* istanbul ignore next */
   updateBill = (bill) => {
     if (this.store) {
       this.store

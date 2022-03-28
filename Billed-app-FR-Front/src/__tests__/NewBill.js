@@ -3,14 +3,12 @@
  */
 
 import { fireEvent, screen } from "@testing-library/dom";
-import BillsUI from "../views/BillsUI.js";
-import { ROUTES_PATH } from "../constants/routes.js";
 import { ROUTES } from "../constants/routes";
 import { localStorageMock } from "../__mocks__/localStorage.js";
-import router from "../app/Router.js";
 import NewBillUI from "../views/NewBillUI.js";
 import NewBill from "../containers/NewBill.js";
 import mockStore from "../__mocks__/store";
+import store from "../__mocks__/store";
 
 jest.mock("../app/store", () => mockStore);
 
@@ -41,7 +39,7 @@ Il doit changer d'input et doit corrrespondre à une extension jpeg, png ou pdf*
       const newBill = new NewBill({
         document,
         onNavigate,
-        store: null,
+        store: store,
         localStorage: window.localStorage,
       });
 
