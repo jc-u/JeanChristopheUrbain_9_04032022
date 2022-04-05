@@ -5,7 +5,6 @@
 import { screen, waitFor } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 import BillsUI from "../views/BillsUI.js";
-
 import { ROUTES_PATH } from "../constants/routes.js";
 import { ROUTES } from "../constants/routes";
 import { localStorageMock } from "../__mocks__/localStorage.js";
@@ -52,10 +51,6 @@ describe("Given I am connected as an employee", () => {
     });
   });
 
-  /* Etant donné que je suis connecté comme un employé :
-  Quand je clique sur le bouton new bills
-  Il doit afficher la page de new bills */
-
   describe("When I click on new bill button", () => {
     test("Then function handleClickNewBill is called and I navigate to new bill page", () => {
       const html = BillsUI({ data: [] });
@@ -76,9 +71,6 @@ describe("Given I am connected as an employee", () => {
       expect(handleClickNewBill).toHaveBeenCalled();
     });
   });
-
-  /* Quand je clique sur le bouton voir
-  Il doit afficher la modale du justifcatif */
 
   describe("when I click on the eye button", () => {
     test("it should display the justificate modal", () => {

@@ -26,7 +26,7 @@ export default class NewBill {
     const filePath = e.target.value.split(/\\/g);
     const fileName = filePath[filePath.length - 1];
 
-    const fileAcceptedRegex = new RegExp("^.*.(png|jpe?g|pdf)$", "i");
+    const fileAcceptedRegex = new RegExp("^.*.(png|jpe?g)$", "i");
     if (!fileAcceptedRegex.test(file.name)) return false;
 
     const formData = new FormData();
