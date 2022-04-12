@@ -82,7 +82,8 @@ export default class Login {
         )
         .then(({ jwt }) => {
           localStorage.setItem("jwt", jwt);
-        });
+        })
+        .catch((error) => console.error(error));
     } else {
       return null;
     }
@@ -105,7 +106,8 @@ export default class Login {
         .then(() => {
           console.log(`User with ${user.email} is created`);
           return this.login(user);
-        });
+        })
+        .catch((error) => console.error(error));
     } else {
       return null;
     }
